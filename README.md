@@ -1,69 +1,142 @@
-# uzay_similsyonu
-Uzay Simülasyonu (Space Simulation Project):
-Bu proje, bir bilim insanının Güneş sistemindeki farklı gezegenlerde (Merkür'den Neptün'e kadar) temel fizik kanunlarını simüle etmesini sağlayan C dili ile geliştirilmiş konsol tabanlı bir uygulamadır.
+<div align="center">
 
-Proje Hakkında:
-Bu uygulama, Bursa Teknik Üniversitesi Bilgisayar Mühendisliği Algoritmalar ve Programlama dersi dönemi projesi kapsamında geliştirilmiştir. Projenin temel amacı, karmaşık fiziksel hesaplamaları C dilinin ileri seviye özelliklerini (pointer aritmetiği, dinamik bellek yönetimi mantığı vb.) kullanarak gerçekleştirmektir.
+# 🚀 OrbitLab
+### Physics experiments across the Solar System
 
-Teknik Özellikler:
-Proje geliştirilirken aşağıdaki teknik kısıtlamalara ve kurallara tam uyum sağlanmıştır:
+**One program. Nine experiments. Eight planets.**  
+Explore how gravity changes the results of everyday physics experiments — from free fall to elevator motion.
 
-Pointer Aritmetiği: Dizi elemanlarına erişim sırasında [] operatörü yerine tamamen *(ptr + i) yapısı kullanılmıştır.
+<br>
 
-Modüler Yapı: Her fizik deneyi (9 farklı deney) bağımsız fonksiyonlar olarak tanımlanmıştır.
+![C](https://img.shields.io/badge/Language-C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
+![Physics](https://img.shields.io/badge/Topic-Physics-6C63FF?style=for-the-badge)
+![Planets](https://img.shields.io/badge/Planets-8-F4B942?style=for-the-badge)
 
-Hata Yönetimi: Geçersiz veri girişlerini (harf girilmesi vb.) engellemek için Buffer Cleaning (Tampon Temizleme) mekanizması kurulmuştur.
+</div>
 
-Ternary Operatörü: Mutlak değer hesaplamaları ve yön seçimleri için if-else yerine ? : operatörü tercih edilmiştir.
+---
 
-Simüle Edilen Deneyler:
-Serbest Düşme (Distance of Free Fall)
+## 🌌 About the project
 
-Yukarı Atış (Maximum Height)
+What happens if you drop an object on Jupiter instead of Earth? How high would it rise on Mars? Would a pendulum swing at the same speed on the Moon's neighboring planets?
 
-Ağırlık Hesaplama (Weight on Planets)
+**OrbitLab** is a menu-driven C application that lets you explore these questions through nine basic physics experiments. Enter the required values, choose an experiment, and compare the calculated results across eight planets using their gravitational acceleration values.
 
-Kütleçekimsel Potansiyel Enerji
+The goal is to make physics more interactive while practicing core C programming concepts such as functions, arrays, pointers, loops, conditional statements, and user input.
 
-Hidrostatik Basınç
+## 🪐 The planetary dataset
 
-Arşimet Kaldırma Kuvveti
+The program includes gravitational acceleration values for:
 
-Basit Sarkaç Periyodu
+| Planet | Gravitational acceleration (m/s²) |
+|---|---:|
+| Mercury | 3.70 |
+| Venus | 8.87 |
+| Earth | 9.81 |
+| Mars | 3.71 |
+| Jupiter | 24.79 |
+| Saturn | 10.44 |
+| Uranus | 8.69 |
+| Neptune | 11.15 |
 
-Sabit İp Gerilmesi
+## 🧪 The experiment menu
 
-Asansör Deneyi (Etkin Ağırlık Değişimi)
+Choose from nine calculations:
 
-Kurulum ve Çalıştırma
-Projeyi yerel makinenizde çalıştırmak için:
+| # | Experiment | What it calculates |
+|---:|---|---|
+| 1 | Free Fall | Distance fallen over a given time |
+| 2 | Vertical Upward Throw | Maximum height reached from an initial speed |
+| 3 | Weight | Gravitational force acting on a given mass |
+| 4 | Gravitational Potential Energy | Potential energy at a given height |
+| 5 | Hydrostatic Pressure | Pressure at a given liquid depth |
+| 6 | Archimedes' Buoyant Force | Buoyant force on an immersed volume |
+| 7 | Simple Pendulum | Pendulum period for a given length |
+| 8 | Fixed-Rope Tension | Tension calculated as mass multiplied by gravity |
+| 9 | Elevator Experiment | Apparent weight for the selected acceleration direction |
 
-Depoyu klonlayın:
+Each experiment uses the same input values to calculate and display a result for all eight planets.
 
-Bash
+## 📐 Physics formulas
 
-git clone https://github.com/kullanici-adiniz/proje-isminiz.git
-C derleyicisi (gcc) ile derleyin:
+The program uses the following equations:
 
-Bash
+| Experiment | Formula |
+|---|---|
+| Free fall | \(h = \frac{1}{2}gt^2\) |
+| Maximum height | \(h_{max} = \frac{v_0^2}{2g}\) |
+| Weight | \(W = mg\) |
+| Potential energy | \(E_p = mgh\) |
+| Hydrostatic pressure | \(P = \rho gh\) |
+| Buoyant force | \(F_b = \rho gV\) |
+| Simple pendulum | \(T = 2\pi\sqrt{\frac{L}{g}}\) |
+| Fixed-rope tension | \(F = mg\) |
+| Elevator (upward acceleration) | \(N = m(g+a)\) |
+| Elevator (downward acceleration) | \(N = m(g-a)\) |
 
-gcc main.c -o uzay_simulasyonu -lm
-Çalıştırın:
+Here, \(g\) is the gravitational acceleration of the selected planet.
 
-Bash
+## 🧰 C concepts practiced
 
-./uzay_simulasyonu
+- **Functions:** Each experiment is implemented as a separate function.
+- **Arrays:** Planet names and gravitational acceleration values are stored in arrays.
+- **Pointers:** The experiment functions receive the gravity array through a pointer.
+- **Loops:** The program iterates through all eight planets to calculate results.
+- **Switch-case:** The menu routes the user's selection to the corresponding experiment.
+- **Input handling:** `scanf()` is used to collect experiment values and menu choices.
+- **Math library:** `sqrt()` is used for the simple pendulum calculation.
 
-örnek çıktı:
+## ⚙️ Run the program
 
-Bilim insaninin adini giriniz: Gemini
---- DENEY MENUSU ---
-1. Serbest Dusme
-...
-Secim: 1
-Sure (s): 5
-Dunya: 122.62 m
-Jupiter: 309.88 m
-...
- Lisans
-Bu proje eğitim amaçlı geliştirilmiştir.
+### Requirements
+
+- A C compiler, such as GCC
+- The C standard library
+- The math library (`libm` on systems that require explicit linking)
+
+### Compile
+
+Save the source code as `main.c`, then compile it with:
+
+```bash
+gcc main.c -o orbitlab -lm
+```
+
+### Execute
+
+On macOS or Linux:
+
+```bash
+./orbitlab
+```
+
+On Windows:
+
+```bash
+orbitlab.exe
+```
+
+## 🖥️ Using the program
+
+1. Enter the scientist's name when prompted.
+2. Select an experiment from the menu.
+3. Enter the requested physical quantities.
+4. View the calculated results for all eight planets.
+5. Select another experiment or enter `-1` to exit.
+
+## 🔭 Possible future improvements
+
+- Add input validation for all experiment values.
+- Support names containing spaces.
+- Add more celestial bodies, such as Earth's Moon.
+- Display results in a formatted comparison table.
+- Allow users to choose a planet instead of calculating all eight every time.
+- Add more physics experiments.
+
+---
+
+<div align="center">
+
+**Built with C · Inspired by physics · Curious about the universe** 🌠
+
+</div>
